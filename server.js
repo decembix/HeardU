@@ -12,7 +12,9 @@ const PORT = 3000;
 app.use(express.static(__dirname));
 app.use("/js", express.static(path.join(__dirname, "js")));
 app.use("/css", express.static(path.join(__dirname, "css")));
-
+app.get("/", (req, res) => {
+  res.send("서버 실행");
+});
 app.use(cors());
 const upload = multer({ dest: "uploads/" });
 
@@ -20,7 +22,6 @@ app.post("/api/transcribe", upload.single("audio"), async (req, res) => {
   const inputPath = req.file.path;
   const outputPath = path.join(__dirname, "result.txt");
 
-  // whisper 파이썬 스크립트 실행 (로컬 Python에서 heardU.pt로 예측)
   const command = `python whisper_run.py ${inputPath} ${outputPath}`;
   exec(command, (err, stdout, stderr) => {
     if (err) {

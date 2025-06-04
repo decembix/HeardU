@@ -1,0 +1,52 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #e6f7ff;
+    text-align: center;
+    padding: 50px;
+}
+
+h1 {
+    color: #3399ff;
+}
+
+button {
+    background-color: #66ccff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3399ff;
+}
+
+#resultText {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#recordBtn {
+  padding: 15px 30px;
+  font-size: 16px;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#recordBtn.listening {
+  background-color: #4fc3f7; /* 하늘색 */
+}
+
+canvas#visualizer {
+  display: block;
+  margin: 20px auto;
+}

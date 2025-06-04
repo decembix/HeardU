@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+npm-debug.log
+.env
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Whisper fine-tuned model
+*.pt
+
+# 음성 업로드된 임시 파일
+uploads/
+*.wav
+*.mp3
+
+# VSCode 설정
+.vscode/
+
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# 백업 파일
+*.bak
+*.swp
+*.swo
+*~

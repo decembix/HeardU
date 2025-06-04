@@ -9,7 +9,7 @@ const app = express();
 app.get("/", (req, res) => {
   res.send("서버 실행");
 });
-const PORT = 3000;
+const PORT = 5555;
 
 // 정적 파일 서빙
 app.use(express.static(__dirname));

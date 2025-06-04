@@ -6,7 +6,7 @@ const fs = require("fs");
 const { exec } = require("child_process");
 
 const app = express();
-const PORT = 5000;
+const PORT = 3000;
 
 // 정적 파일 서빙
 app.use(express.static(__dirname));

@@ -6,18 +6,16 @@
 FROM python:3.10-slim
 
 # 필수 패키지 설치 + ffmpeg 바이너리 직접 설치 (용량 최소화)
-RUN apt-get update && \
-    apt-get install -y curl && \
-    curl -L https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz | tar -xJ && \
-    cp ffmpeg-*-amd64-static/ffmpeg /usr/local/bin/ && \
-    cp ffmpeg-*-amd64-static/ffprobe /usr/local/bin/ && \
-    rm -rf ffmpeg-*-amd64-static && \
-    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
 # 작업 디렉토리 설정
 WORKDIR /app
+
+# ffmpeg 정적 바이너리 설치 (Cloudtype-friendly)
+RUN curl -LO https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+RUN tar -xf ffmpeg-release-amd64-static.tar.xz && \
+    cp ffmpeg-*-amd64-static/ffmpeg /usr/local/bin/ && \
+    cp ffmpeg-*-amd64-static/ffprobe /usr/local/bin/ && \
+    rm -rf ffmpeg-*-amd64-static ffmpeg-release-amd64-static.tar.xz
+
 
 # Node 의존성 설치
 COPY package*.json ./

@@ -30,7 +30,7 @@ COPY . .
 RUN python -c "import whisper; whisper.load_model('tiny')"
 
 # 5000 포트 사용 (Cloudtype용)
-EXPOSE 5000
+EXPOSE 5555
 
 # Node.js 서버 실행
 CMD ["node", "server.js"]

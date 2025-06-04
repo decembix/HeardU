@@ -6,15 +6,16 @@ const fs = require("fs");
 const { exec } = require("child_process");
 
 const app = express();
+app.get("/", (req, res) => {
+  res.send("서버 실행");
+});
 const PORT = 3000;
 
 // 정적 파일 서빙
 app.use(express.static(__dirname));
 app.use("/js", express.static(path.join(__dirname, "js")));
 app.use("/css", express.static(path.join(__dirname, "css")));
-app.get("/", (req, res) => {
-  res.send("서버 실행");
-});
+
 app.use(cors());
 const upload = multer({ dest: "uploads/" });
 

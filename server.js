@@ -6,13 +6,17 @@ const fs = require("fs");
 const { exec } = require("child_process");
 
 const app = express();
-app.get("/", (req, res) => {
-  res.send("서버 실행");
-});
 const PORT = 5555;
 
 // 정적 파일 서빙
 app.use(express.static(__dirname));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+app.get('/isokay', (req, res) => {
+    res.sendFile(path.join(__dirname, 'isokay.html'));
+});
+
 app.use("/js", express.static(path.join(__dirname, "js")));
 app.use("/css", express.static(path.join(__dirname, "css")));
 

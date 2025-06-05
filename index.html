@@ -2,18 +2,21 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>HeardU 음성 인식</title>
+  <title>HeardU</title>
   <link rel="stylesheet" href="./css/home.css">
 </head>
 <body>
-  
-  <h1>🎤 HeardU 음성 인식 데모</h1>
-  <canvas id="visualizer" width="300" height="300"></canvas>
-  <button id="recordBtn">음성 입력 시작</button>
-  <p id="status">버튼을 눌러 음성을 입력하세요</p>
-  <h3>📝 변환된 텍스트:</h3>
-  <p id="resultText">(결과가 여기에 표시됩니다)</p>
+  <h1>HeardU</h1>
+  <div class="whitebox">
+    <p id="resultText"> ...</p>
+  </div>
+  <div class="ripple-container">
+    <button id="recordBtn" aria-label="음성 입력 시작">
+      <img src="assets/mic.png" alt="마이크" class="mic-icon"/>
 
+    </button>
+  </div>
+  <p id="status">버튼을 눌러 음성을 입력하세요</p>
   <script src="./js/app.js"></script>
 </body>
 </html>

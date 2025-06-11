@@ -8,10 +8,10 @@ input_path = sys.argv[1]
 output_path = sys.argv[2]
 
 #Whisper 모델 구조 : tiny
-model = whisper.load_model("tiny")
+model = whisper.load_model("base")
 
 #pt파일 로드
-model.load_state_dict(torch.load("assets/0604_random.pt"))
+model.load_state_dict(torch.load("assets/heardu.pt"))
 
 #결과 뽑기
 result = model.transcribe(input_path, language="ko")
